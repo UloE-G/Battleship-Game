@@ -13,12 +13,27 @@ letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def validate_ship(start_row, end_row, start_col, end_col):
     """
-    Will check to see if it is a valid to place a ship in a specific row or column 
+    Will check to see if it is valid to place a ship in a specific row or column 
     """
     global grid
     global ship_positions
     
-    pass
+    # Checks to see if all the spots on the ship water or empty space (".")
+    valid = True
+    for r in range(start_row, end_row):
+        for c in range(start_col, end_col):
+            # Breaks out of loop if it runs into something that is not "."
+            if grid[r][c] != ".":
+                valid = False
+                break
+    # Creates ships if all positions are "."
+    if valid:
+        ship_positions.append([start_row, end_row, start_col, end_col])
+        for r in range(start_row, end_row):
+            for c in range(start_col, end_col):
+                grid[r][c] = "O"
+
+    return all_valid:
 
 def help_place_ship(row, col, direction, lenght):
     """
