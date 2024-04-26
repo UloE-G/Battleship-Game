@@ -111,11 +111,28 @@ def print_grid():
     """
     Prints out the grid
     """
-
     global grid
     global letters
 
-    pass
+    # For testing
+    debug_mode = True
+
+    # Slicing letters
+    letters = letters[0: len(grid) + 1]
+
+    for row in range(len(grid)):
+        print(letters(row), end = ")")
+        for col in range(len(grid[row])):
+            if debug_mode:
+                print("O", end = " ")
+            else:
+                print(grid[row][col], end = " ")
+        print("")
+    
+    print(" ", end = " ")
+    for i in range(len(grid[0])):
+        print(str(i), end=" ")
+    print("")
 
 def bullet_placement():
     """
