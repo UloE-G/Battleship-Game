@@ -41,28 +41,34 @@ def help_place_ship(row, col, direction, lenght):
     """
     global grid_size
 
+    # Checks each row and column one time
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
+
+    # Checks to see if the grid starting position to the left is actually on the grid
     if direction == "left":
         if col - length < 0:
             return False
         start_col = col - length + 1
 
+    # Checks to see if the grid starting position to the right is actually on the grid
     elif direction == "right":
         if col + length >= grid_size:
             return False
         end_col = col + length
 
+    # Checks to see if the grid starting position up is actually on the grid
     elif direction == "up":
         if row - length < 0:
             return False
         start_row = row - length + 1
 
+    # Checks to see if the grid starting position down is actually on the grid
     elif direction == "down":
         if row + length >= grid_size:
             return False
         end_row = row + length
 
-    return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
+    return validate_ship(start_row, end_row, start_col, end_col)
 
 def create_grid():
     """
@@ -74,9 +80,32 @@ def create_grid():
     global ships
     global ship_positions
 
-    pass
+    random.seed(time.time())
 
-    help_place_ship(0, 0, 0, 0)
+    rows, cols = (grid_size, grid_size)
+
+    grid = []
+    # Creats an empty row
+    for r in range(rows):
+        row = []
+        # Places a "." in each row
+        for c in range(cols):
+            row.append(".")
+        # Places row in gird
+        grid.append(row)
+
+    ships_placed = 0
+
+    ship_positions = []
+
+    # Radomize ship placement
+    while ships_placed != ships:
+        random_row = random.randint(0, rows - 1)
+        random_col = random.randint(0, cols - 1)
+        direction = random.choice(["left", "right", "up", "down"])
+        ship_size = random.randint(3, 5)
+        if help_place_ship(random_row, random_col, direction, ship_size):
+            num_of_ships_placed += 1
 
 def print_grid():
     """
