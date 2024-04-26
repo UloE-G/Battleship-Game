@@ -41,9 +41,28 @@ def help_place_ship(row, col, direction, lenght):
     """
     global grid_size
 
-    pass
+    start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
+    if direction == "left":
+        if col - length < 0:
+            return False
+        start_col = col - length + 1
 
-    return validate_ship(0, 0, 0, 0)
+    elif direction == "right":
+        if col + length >= grid_size:
+            return False
+        end_col = col + length
+
+    elif direction == "up":
+        if row - length < 0:
+            return False
+        start_row = row - length + 1
+
+    elif direction == "down":
+        if row + length >= grid_size:
+            return False
+        end_row = row + length
+
+    return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
 
 def create_grid():
     """
