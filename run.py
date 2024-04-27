@@ -188,27 +188,52 @@ def ships_sunk(row, col):
     global ship_positions
     global grid
 
-    pass
-
+    for position in ship_positions:
+        start_row = position[0]
+        end_row_row = position[1]
+        start_col = position[2]
+        end_col = position[3]
+        if start_row <= row <end_row and start_col <= col <= end_col:
+            # Check if all the ship has sunk
+            for r in range(start_row, end_row):
+                for c in range(start_col, end_col):
+                    if grid[r][c] != "X":
+                        return False
+    return True
+    
 def shot():
     """
     Updates grid and ship based on where the
     bullet was shot.
     """
     global grid
-    global ships_sunk
+    global sunk
     global bullets
 
     row, col = bullet_placement()
 
-    pass
+    print("")
+    print("_____________________")
 
+    # Create dialouge to indicate whether user hit, missed, or destroyed a ship
+    if grid[row][col] == ".":
+        print(":( , You missed, no ship was hit")
+    elif grid[row][col] == "O":
+        print(":) , you hit!", end=" ")
+        grid[row][col] == "X":
+        if ships_sunk(row, col):
+            print(NICE!!!, A ship has completley sunk)
+            sunk += 1
+        else:
+            print(Good, A ship was shot)
+    bullets -= 1
+    
 def game_done():
     """
     If all ships have sunk or no more bullets,
     the game ends
     """ 
-    global ships_sunk
+    global sunk
     global ships
     global bullets
     global game_over
