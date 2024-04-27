@@ -33,7 +33,7 @@ def validate_ship(start_row, end_row, start_col, end_col):
             for c in range(start_col, end_col):
                 grid[r][c] = "O"
 
-    return all_valid:
+    return valid
 
 def help_place_ship(row, col, direction, lenght):
     """
@@ -220,14 +220,14 @@ def shot():
         print(":( , You missed, no ship was hit")
     elif grid[row][col] == "O":
         print(":) , you hit!", end=" ")
-        grid[row][col] == "X":
+        grid[row][col] == "X"
         if ships_sunk(row, col):
-            print(NICE!!!, A ship has completley sunk)
+            print("NICE!!!, A ship has completley sunk")
             sunk += 1
         else:
-            print(Good, A ship was shot)
+            print("Good, A ship was shot")
     bullets -= 1
-    
+
 def game_done():
     """
     If all ships have sunk or no more bullets,
@@ -238,7 +238,12 @@ def game_done():
     global bullets
     global game_over
 
-    pass
+    if ships == ships_sunk:
+        print("YOU WON!!!, all ships destroyed")
+        game_over = True
+    elif bullets <= 0:
+        print("YOU FAILED, You didn't destroy all ships and ran out of bullets")
+        game_over = True
 
 def main():
     """
@@ -246,4 +251,13 @@ def main():
     """ 
     global  game_over
 
-    pass
+    create_grid()
+
+    while game_over is False:
+        print_grid()
+        print("Number of ships remaining: " + str(ships - ships_sunk))
+        print("Number of bullets left: " + str(bullets))
+        shot()
+        print("-----------------------")
+        print("")
+        game_done()
