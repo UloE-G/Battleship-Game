@@ -120,15 +120,18 @@ def print_grid():
     # Slicing letters
     letters = letters[0: len(grid) + 1]
 
+    # Print Letters
     for row in range(len(grid)):
         print(letters(row), end = ")")
         for col in range(len(grid[row])):
+            # Print out ship in debug mode
             if debug_mode:
                 print("O", end = " ")
             else:
                 print(grid[row][col], end = " ")
         print("")
     
+    # Print Numbers
     print(" ", end = " ")
     for i in range(len(grid[0])):
         print(str(i), end=" ")
@@ -141,9 +144,41 @@ def bullet_placement():
     global letters
     global grid
 
-    pass
+    is_valid = False
+    row = -1
+    col = -1
+    while is_valid  is False:
+        placement = input("Enter row (A-J) and column (0-9) eg. A3: ")
+        placement = placement.upper()
+        # If user enters to many numbers or letters print error
+        if len(placement) <= 0 or len(placement) > 2:
+            print("Error: Please enter only one row and column eg. A3")
+            continue
+        row = placement[0]
+        col = placement[1]
+        # If row is not a letter or column is not a number print error
+        if not row.isalpha() or not col.isnumeric():
+            print("Error: Please enter letter (A-J) for row and numebers (0-9) column")
+            continue
+        # Checks if row is in the grid, if not print error
+        row = letters.find(row)
+        if not (-1 < row < grid_size):
+            print("Error: Please enter letter (A-J) for row and numebers (0-9) column")
+            continue
+        # Checks if column is in the grid, if not print error
+        col =  int(col)
+        if not (-1 < col < grid_size):
+            print("Error: Please enter letter (A-J) for row and numebers (0-9) column")
+            continue
+        # If user trys to place a bullet in the exact same location as previous one, print error
+        if grid[row][col] == "#" or grid[row][col] == "X":
+            print("?... You Have already shot a bullet here, pick somewhere else")
+            continue
+        # Valid 
+        if grid[row][col] == "." or gird[row][col] == "0":
+            is_valid = True
 
-    return 0, 0
+    return row, col
 
 def ships_sunk(row, col):
     """
