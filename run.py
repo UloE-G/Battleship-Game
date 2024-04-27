@@ -35,7 +35,7 @@ def validate_ship(start_row, end_row, start_col, end_col):
 
     return valid
 
-def help_place_ship(row, col, direction, lenght):
+def help_place_ship(row, col, direction, length):
     """
     Based on the direction, will help to try and place ship on the grid
     """
@@ -105,7 +105,7 @@ def create_grid():
         direction = random.choice(["left", "right", "up", "down"])
         ship_size = random.randint(3, 5)
         if help_place_ship(random_row, random_col, direction, ship_size):
-            num_of_ships_placed += 1
+            ships_placed += 1
 
 def print_grid():
     """
@@ -122,7 +122,7 @@ def print_grid():
 
     # Print Letters
     for row in range(len(grid)):
-        print(letters(row), end = ")")
+        print(letters[row], end = ")")
         for col in range(len(grid[row])):
             # Print out ship in debug mode
             if debug_mode:
@@ -261,3 +261,7 @@ def main():
         print("-----------------------")
         print("")
         game_done()
+
+if __name__ == '__main__':
+    """Will only be called when program is run from terminal or an IDE like PyCharms"""
+    main()
