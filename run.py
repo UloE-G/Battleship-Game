@@ -4,7 +4,7 @@ import time
 # Global variables for grid
 grid = [[]]
 grid_size = 10
-ships = 2
+ships = 8
 bullets = 50
 game_over = False
 sunk = 0
@@ -115,7 +115,7 @@ def print_grid():
     global letters
 
     # For testing
-    debug_mode = True
+    debug_mode = False
 
     # Slicing Letters
     letters = letters[0: len(grid) + 1]
@@ -175,7 +175,7 @@ def bullet_placement():
             continue
         # If user trys to place a bullet in the exact same location as previous one, print error
         if grid[row][col] == "#" or grid[row][col] == "X":
-            print("You have already shot a bullet here, pick somewhere else")
+            print("?.... You have already shot a bullet here, pick somewhere else")
             continue
         # Valid
         if grid[row][col] == "." or grid[row][col] == "O":
@@ -222,7 +222,7 @@ def shot():
 
     # Create dialouge to indicate whether user hit, missed, or destroyed a ship
     if grid[row][col] == ".":
-        print(":( , You missed, no ship was hit\n")
+        print(":( , You missed, no ship was hit")
         grid[row][col] = "#"
     elif grid[row][col] == "O":
         print(":) , You hit!\n", end=" ")
@@ -231,7 +231,7 @@ def shot():
             print("NICE!!!, A ship was completely destroyed!")
             sunk += 1
         else:
-            print("Good, A ship was shot")
+            print("A ship was shot")
 
     bullets -= 1
 
