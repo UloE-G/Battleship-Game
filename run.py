@@ -1,16 +1,15 @@
 import random
 import time
 
-# Global variables for grid
+# Global variables for game
 grid = [[]]
-grid_size = 10
-ships = 8
+grid_size = int(input("Enter the grid size you want to play with (between 5 and 11): "))
+ships = int(input("Enter the number of ships you want to play with (max 10): "))
 bullets = 50
 game_over = False
 sunk = 0
 ship_positions = [[]]
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
 
 def validate_ship(start_row, end_row, start_col, end_col):
     """
@@ -115,7 +114,7 @@ def print_grid():
     global letters
 
     # For testing
-    debug_mode = False
+    debug_mode = True
 
     # Slicing Letters
     letters = letters[0: len(grid) + 1]
@@ -261,7 +260,8 @@ def main():
     global game_over
 
     print("-----Welcome to Battleships-----")
-    print("You have 50 bullets to take down 8 ships, may the battle begin!")
+    print("Your ship is under attack!!!")
+    print(f'You have 50 bullets to take down {ships} ships, begin!')
 
     create_grid()
 
