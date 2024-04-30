@@ -165,12 +165,12 @@ def bullet_placement():
         # Checks if row is in the grid, if not print error
         row = letters.find(row)
         if not (-1 < row < grid_size):
-            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            print("Error: Please enter a row number that is on grid")
             continue
         # Checks if column is in the grid, if not print error
         col = int(col)
         if not (-1 < col < grid_size):
-            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            print("Error: Please enter a column letter that is on grid")
             continue
         # If user trys to place a bullet in the exact same location as previous one, print error
         if grid[row][col] == "#" or grid[row][col] == "X":
