@@ -1,32 +1,46 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleship-Game
 
-Welcome,
+Battleship is a guessing game where the player has to find the location of a certain number of ships marked on a grid. The players has a certain number of bullets to correctly guess all the locations of the ship on the grid or else they lose.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+[View live project here.](https://ubattleship-game-8145696e70f4.herokuapp.com/)
 
-## Reminders
+![Battleship mockup](assets/images/battleship.png)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Features
+This game has three features:
 
-## Creating the Heroku app
+ -The first one being the selction area
+ 
+ -The second being the game area.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+ -And last being the win or lose area.
 
-1. `heroku/python`
-2. `heroku/nodejs`
+- Selection area
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+  -The user in this are must decide the grid size and number of ships in the grid.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+  -The grid must be between 5 and 11.
 
-Connect your GitHub repository and deploy as normal.
+  The ship number must be less than 10.
 
-## Constraints
+![Selection area](assets/images/selection.png)
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+- Game area
 
----
+  -This is where the grid and ships are loaded.
 
-Happy coding!
+  -The grid is labeled from 1-10 on the x-axis and A-J on the y-axis depending on your grid size.
+
+- Finish area
+
+  -This part come on when the user either:
+
+   - Finds all the ships on the grid.
+
+   - Runs out of bullets.
+
+  -If the user runs out of bullets they have failed the game and this text will appear.
+
+![Failed text](assets/images/failed.png)
+    
+ -If the user find all the ships before they run out of bullets it means they won and this text appears
