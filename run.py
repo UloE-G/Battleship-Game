@@ -3,8 +3,8 @@ import time
 
 # Global variables for game
 grid = [[]]
-grid_size = int(input("Enter the grid size you want to play with (between 5 and 11): "))
-ships = int(input("Enter the number of ships you want to play with (max 10): "))
+grid_size = 0
+ships = 0
 bullets = 50
 game_over = False
 sunk = 0
@@ -105,7 +105,6 @@ def create_grid():
         if help_place_ship(random_row, random_col, direction, ship_size):
             ships_placed += 1
 
-
 def print_grid():
     """
     Prints out the grid.
@@ -114,7 +113,7 @@ def print_grid():
     global letters
 
     # For testing
-    debug_mode = False
+    debug_mode = True
 
     # Slicing Letters
     letters = letters[0: len(grid) + 1]
@@ -158,6 +157,8 @@ def bullet_placement():
             continue
         row = placement[0]
         col = placement[1]
+        if not row and col:
+            print("Error: Please enter a letter and number")
         # If row is not a letter or column is not a number print error
         if not row.isalpha() or not col.isnumeric():
             print("Error: Please enter letter (A-J) for row and (0-9) for column")
@@ -165,12 +166,12 @@ def bullet_placement():
         # Checks if row is in the grid, if not print error
         row = letters.find(row)
         if not (-1 < row < grid_size):
-            print("Error: Please enter a row number that is on grid")
+            print("Error: Please enter a column letter that is on grid")
             continue
         # Checks if column is in the grid, if not print error
         col = int(col)
         if not (-1 < col < grid_size):
-            print("Error: Please enter a column letter that is on grid")
+            print("Error: Please enter a row number that is on grid")
             continue
         # If user trys to place a bullet in the exact same location as previous one, print error
         if grid[row][col] == "#" or grid[row][col] == "X":
@@ -258,8 +259,25 @@ def main():
     Runs game loop
     """
     global game_over
+    global grid_size
+    global ships
 
     print("-----Welcome to Battleships-----")
+    # Get valid grid size input
+    while True:
+        grid_size = int(input("Enter the grid size you want to play with (between 5 and 11): "))
+        if grid_size < 5 or grid_size > 11:
+            print("Error: Grid size must be between 5 and 11")
+        else:
+            break
+
+    # Get valid number of ships input
+    while True:
+        ships = int(input("Enter the number of ships you want to play with (max 10): "))
+        if ships > 10:
+            print("Error: Maximum number of ships is 10")
+        else:
+            break
     print("Your ship is under attack!!!")
     print(f'You have 50 bullets to take down {ships} ships, begin!')
 
