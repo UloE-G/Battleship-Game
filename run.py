@@ -113,7 +113,7 @@ def print_grid():
     global letters
 
     # For testing
-    debug_mode = True
+    debug_mode = False
 
     # Slicing Letters
     letters = letters[0: len(grid) + 1]
