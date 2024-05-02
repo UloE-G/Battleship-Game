@@ -112,9 +112,16 @@ Variabels:
 |Game lost|Passed|  
 |Close game|Passed|
 
-|Action|Expected results|Actual results|
-|---|---|---|
-|Invalid grid size ![Invalid grid size](assets/images/invalidgrid.png)|Error message|Error message|
-|Invalid ship number ![Invalid ship number]()|Error message|Error message|
+|Action|Expected results|
+|---|---|
+|Invalid grid size ![Invalid grid size](assets/images/invalidgrid.png)|Error message|
+|Invalid ship number ![Invalid ship number](assets/images/invalidship.png)|Error message|
+|Grid size and ships appear ![Grid](assets/images/grid.png)|Correct grid size appears with ships invisible|
+|Invalid bullet placement (wrong order eg. 2A) ![Wrong order message](assets/images/wrongorder.png)|Error message|
+|Invalid shot (letters not on grid eg. X2) ![Wrong letter message](assets/images/wrongletter.png)|Error Message|
+|Invalid bullet placement(Number not on gird eg. D10)|Error Message|No Error Message appears|
+|Valid bullet placement (Miss) ![Valid missed shot](assets/images/miss.png)|"#" appears with text stating that shot was missed|
+|Valid shot (hit) ![Valid hit shot](image.png)|"X" appears with text stating ship was hit|
+
 
 ## Bugs
