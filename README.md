@@ -94,3 +94,27 @@ Variabels:
 ## Testing
 - The code was ran through a [synk.io](https://snyk.io/code-checker/python/) python validator and no errors were found.
 
+- Ran the game with different grid sizes to see how the ships would look on the grid.
+
+- Ran the game with different ship numbers to see how they would look on the grid.
+
+|What was tested|Result|
+|---|---|
+|Load game|Passed|
+|Get grid size|Passed|
+|Get ship numbers|Passed|
+|Load grid|Passed|
+|Load ships|Passed|
+|Valid bullet placement|Passed|
+|Invalid bullet placement errors|Passed|
+|Ship sink|Passed|
+|Game won|Passed|
+|Game lost|Passed|  
+|Close game|Passed|
+
+|Action|Expected results|Actual results|
+|---|---|---|
+|Invalid grid size ![Invalid grid size](assets/images/invalidgrid.png)|Error message|Error message|
+|Invalid ship number ![Invalid ship number]()|Error message|Error message|
+
+## Bugs
