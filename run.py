@@ -273,9 +273,9 @@ def main():
 
     # Get valid number of ships input
     while True:
-        ships = int(input("Enter the number of ships you want to play with (max 10): "))
-        if ships > 10:
-            print("Error: Maximum number of ships is 10")
+        ships = int(input("Enter the number of ships you want to play with (max 5): "))
+        if ships > 5:
+            print("Error: Maximum number of ships is 5")
         else:
             break
     print("Your ship is under attack!!!")
