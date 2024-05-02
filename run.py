@@ -157,18 +157,16 @@ def bullet_placement():
             continue
         row = placement[0]
         col = placement[1]
-        if not row and col:
-            print("Error: Please enter a letter and number")
         # If row is not a letter or column is not a number print error
         if not row.isalpha() or not col.isnumeric():
             print("Error: Please enter letter (A-J) for row and (0-9) for column")
             continue
-        # Checks if row is in the grid, if not print error
+        # Checks if column  is in the grid, if not print error
         row = letters.find(row)
         if not (-1 < row < grid_size):
             print("Error: Please enter a column letter that is on grid")
             continue
-        # Checks if column is in the grid, if not print error
+        # Checks if row is in the grid, if not print error
         col = int(col)
         if not (-1 < col < grid_size):
             print("Error: Please enter a row number that is on grid")
