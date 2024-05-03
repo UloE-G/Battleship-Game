@@ -139,3 +139,7 @@ Variabels:
 ### Unsolved Bugs
 
 - Game crashes when user only fills row e.g. instead of put "J9" they put "9" or "J".
+
+## Transcript
+
+![Flowchart](assets/images/Flowchart.png)
