@@ -112,7 +112,7 @@ Variabels:
 |Game lost|Passed|  
 |Close game|Passed|
 
-|Action|Expected results|
+|Action|Results|
 |---|---|
 |Invalid grid size ![Invalid grid size](assets/images/invalidgrid.png)|Error message|
 |Invalid ship number ![Invalid ship number](assets/images/invalidship.png)|Error message|
@@ -121,7 +121,21 @@ Variabels:
 |Invalid shot (letters not on grid eg. X2) ![Wrong letter message](assets/images/wrongletter.png)|Error Message|
 |Invalid bullet placement(Number not on gird eg. D10)|Error Message|No Error Message appears|
 |Valid bullet placement (Miss) ![Valid missed shot](assets/images/miss.png)|"#" appears with text stating that shot was missed|
-|Valid shot (hit) ![Valid hit shot](image.png)|"X" appears with text stating ship was hit|
-
+|Valid shot (hit) ![Valid hit shot](assets/images/hit.png)|"X" appears with text stating ship was hit|
+|Already selected area ![Already Hit](assets/images/alreadypick.png)|Message stating that area was already picked|
 
 ## Bugs
+
+### Solved Bugs
+
+#### Ship Numbers and Grid Size
+
+- One problem I had while I was creating this code was figuring out how to allow the user to pick their own gird size and the number of ships they wanted to deploy.
+
+- At first I tried to add the input function to get the numbers into the global variables of "ships" and "grid_size" but this didn't work as it wasn't getting read by any of the functions.
+
+- This was solved by adding the "ships" and "grid_size" global variables into the "main" function and having it get the numbers from their.
+
+### Unsolved Bugs
+
+- Game crashes when user only fills row e.g. instead of put "J9" they put "9" or "J".
