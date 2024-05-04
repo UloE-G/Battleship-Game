@@ -6,6 +6,18 @@ Battleship is a guessing game where the player has to find the location of a cer
 
 ![Battleship mockup](assets/images/battleship.png)
 
+## How To Play
+- The game will ask the user to create a grid size and how many ships would be on the grid.
+
+- The user then has to find all the ships 
+on the grid before they run out of bullets or they fail.
+
+- To find the ships the user has to guess the location of each section of the ship.
+
+- For a ship to be fully destroyed all the sections of the ship has to be found.
+
+- Once all ships are fully destroyed the user wins the game
+
 ## Features
 This game has three features:
 
@@ -91,6 +103,10 @@ Variabels:
 
   - letters
 
+## Flowchart
+
+![Flowchart](assets/images/Flowchart.png)
+
 ## Testing
 
 - Ran the game with different grid sizes to see how the ships would look on the grid.
@@ -101,7 +117,9 @@ Variabels:
 |---|---|
 |Load game|Passed|
 |Get grid size|Passed|
+|Grid size error|Passed|
 |Get ship numbers|Passed|
+|Ship number error|Passed|
 |Load grid|Passed|
 |Load ships|Passed|
 |Valid bullet placement|Passed|
@@ -122,6 +140,9 @@ Variabels:
 |Valid bullet placement (Miss) ![Valid missed shot](assets/images/miss.png)|"#" appears with text stating that shot was missed|
 |Valid shot (hit) ![Valid hit shot](assets/images/hit.png)|"X" appears with text stating ship was hit|
 |Already selected area ![Already Hit](assets/images/alreadypick.png)|Message stating that area was already picked|
+|Ship destroyed ![Destroyed ship](assets/images/destroyed.png)|Message stating destroyed ship|
+|Game over (Lost) ![Losing screen](assets/images/gameover.png)|Message stating that you failed|
+|Game over (Won)|Message stating that you won|
 
 ### Validator Testing
 
@@ -150,28 +171,35 @@ Variabels:
 
 ### Unsolved Bugs
 
-- Game crashes when user only fills row e.g. instead of put "J9" they put "9" or "J".
-
-## Flowchart
-
-![Flowchart](assets/images/Flowchart.png)
+- Game crashes when user only fills one placement e.g. instead of put "J9" they put "9" or "J".
 
 ## Deployment
 
-1. Create an account on [Heroku](https://dashboard.heroku.com/apps).
+- This site was deployed on the Heroku app. The steps to deploy are as follows:
 
-2. In the Heroku Dashboard click create a new app.
+  1. Create an account on [Heroku](https://dashboard.heroku.com/apps).
 
-3. Type in the app name (ubattleship-game) and select region (Europe)
+  2. In the Heroku Dashboard click create a new app.
 
-4. Once done go to settings and click reveal config vars.
+  3. Type in the app name (ubattleship-game) and select region (Europe)
 
-5. inside config vars add the word "PORT" to key with a value of 8000.
+  4. Once done go to settings and click reveal config vars.
 
-6. Then go to add buildpacks in settings and click python then nodejs (python must be above nodejs).
+  5. inside config vars add the word "PORT" to key with a value of 8000.
 
-7. Then go to deploy and click on the Github deploy method.
+  6. Then go to add buildpacks in settings and click python then nodejs (python must be above nodejs).
 
-8. Then connect you app to your repository.
+  7. Then go to deploy and click on the Github deploy method.
 
-9. Finally click on the deploy branch on the manual deploy section at the bottom of the page.
+  8. Then connect you app to your repository.
+
+  9. Finally click on the deploy branch on the manual deploy section at the bottom of the page.
+
+[View live project here.](https://ubattleship-game-8145696e70f4.herokuapp.com/)
+
+## Credits 
+
+### Content
+
+- The video that helped me create this battleship game was found on Youtube by [Cs Students](https://www.youtube.com/watch?v=MgJBgnsDcF0&t).
+
