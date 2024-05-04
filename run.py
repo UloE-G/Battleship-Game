@@ -281,6 +281,8 @@ def main():
         ships = int(input("Enter the number of ships (max 5): "))
         if ships > 5:
             print("Error: Maximum number of ships is 5")
+        elif ships == 0:
+            print("Error: 0 ships is not allowed")
         else:
             break
     print("Your ship is under attack!!!")
