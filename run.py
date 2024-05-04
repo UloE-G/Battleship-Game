@@ -11,9 +11,11 @@ sunk = 0
 ship_positions = [[]]
 letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+
 def validate_ship(start_row, end_row, start_col, end_col):
     """
-    Will check to see if it is valid to place a ship in a specific row or column.
+    Will check to see if it is valid to place a ship in a specific
+    row or column.
     """
     global grid
     global ship_positions
@@ -36,20 +38,23 @@ def validate_ship(start_row, end_row, start_col, end_col):
 
 def help_place_ship(row, col, direction, length):
     """
-    Based on the direction, will help to try and place ship on the grid.
+    Based on the direction, will help to try and place
+    ship on the grid.
     """
     global grid_size
 
     # Checks each row and column one time
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
 
-    # Checks to see if the grid starting position to the left is actually on the grid
+    # Checks to see if the grid starting position to
+    # the left is actually on the grid
     if direction == "left":
         if col - length < 0:
             return False
         start_col = col - length + 1
 
-    # Checks to see if the grid starting position to the right is actually on the grid
+    # Checks to see if the grid starting position
+    # to the right is actually on the grid
     elif direction == "right":
         if col + length >= grid_size:
             return False
@@ -72,7 +77,7 @@ def help_place_ship(row, col, direction, length):
 
 def create_grid():
     """
-    Will create a grid and randomly place down ships of 
+    Will create a grid and randomly place down ships of
     different sizes in deiffernet directions.
     """
     global grid
@@ -104,6 +109,7 @@ def create_grid():
         ship_size = random.randint(3, 5)
         if help_place_ship(random_row, random_col, direction, ship_size):
             ships_placed += 1
+
 
 def print_grid():
     """
@@ -159,7 +165,7 @@ def bullet_placement():
         col = placement[1]
         # If row is not a letter or column is not a number print error
         if not row.isalpha() or not col.isnumeric():
-            print("Error: Please enter letter (A-J) for row and (0-9) for column")
+            print("Error: Please enter letters (A-J) and numbers (0-9)")
             continue
         # Checks if column  is in the grid, if not print error
         row = letters.find(row)
@@ -171,9 +177,10 @@ def bullet_placement():
         if not (-1 < col < grid_size):
             print("Error: Please enter a row number that is on grid")
             continue
-        # If user trys to place a bullet in the exact same location as previous one, print error
+        # If user trys to place a bullet in the exact same location
+        # as previous one, print error
         if grid[row][col] == "#" or grid[row][col] == "X":
-            print("?.... You have already shot a bullet here, pick somewhere else")
+            print("?. You have already shot a bullet here, pick another place")
             continue
         # Valid
         if grid[row][col] == "." or grid[row][col] == "O":
@@ -248,7 +255,7 @@ def game_done():
         print("YOU WON!!!, all ships destroyed")
         game_over = True
     elif bullets <= 0:
-        print("YOU FAILED, You didn't destroy all ships and ran out of bullets")
+        print("YOU FAILED, all ships weren't destroyed and ran out of bullets")
         game_over = True
 
 
@@ -263,7 +270,7 @@ def main():
     print("-----Welcome to Battleships-----")
     # Get valid grid size input
     while True:
-        grid_size = int(input("Enter the grid size you want to play with (between 5 and 11): "))
+        grid_size = int(input("Enter the grid size (between 5 and 11): "))
         if grid_size < 5 or grid_size > 11:
             print("Error: Grid size must be between 5 and 11")
         else:
@@ -271,7 +278,7 @@ def main():
 
     # Get valid number of ships input
     while True:
-        ships = int(input("Enter the number of ships you want to play with (max 5): "))
+        ships = int(input("Enter the number of ships (max 5): "))
         if ships > 5:
             print("Error: Maximum number of ships is 5")
         else:
@@ -289,5 +296,6 @@ def main():
         print("----------------------------")
         print("")
         game_done()
+
 
 main()
