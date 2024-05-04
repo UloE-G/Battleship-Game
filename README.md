@@ -92,7 +92,6 @@ Variabels:
   - letters
 
 ## Testing
-- The code was ran through a [synk.io](https://snyk.io/code-checker/python/) python validator and no errors were found.
 
 - Ran the game with different grid sizes to see how the ships would look on the grid.
 
@@ -124,6 +123,19 @@ Variabels:
 |Valid shot (hit) ![Valid hit shot](assets/images/hit.png)|"X" appears with text stating ship was hit|
 |Already selected area ![Already Hit](assets/images/alreadypick.png)|Message stating that area was already picked|
 
+### Validator Testing
+
+- Pyhton
+
+  - The code was also ran through the [Code Institute Python Linter](https://pep8ci.herokuapp.com/#) and it also showed no errors.
+
+- Accessibility
+
+  - This was ran through lighthouse and the results are are:
+
+  ![Lighthouse](assets/images/lighthouse.png)
+
+
 ## Bugs
 
 ### Solved Bugs
@@ -140,6 +152,26 @@ Variabels:
 
 - Game crashes when user only fills row e.g. instead of put "J9" they put "9" or "J".
 
-## Transcript
+## Flowchart
 
 ![Flowchart](assets/images/Flowchart.png)
+
+## Deployment
+
+1. Create an account on [Heroku](https://dashboard.heroku.com/apps).
+
+2. In the Heroku Dashboard click create a new app.
+
+3. Type in the app name (ubattleship-game) and select region (Europe)
+
+4. Once done go to settings and click reveal config vars.
+
+5. inside config vars add the word "PORT" to key with a value of 8000.
+
+6. Then go to add buildpacks in settings and click python then nodejs (python must be above nodejs).
+
+7. Then go to deploy and click on the Github deploy method.
+
+8. Then connect you app to your repository.
+
+9. Finally click on the deploy branch on the manual deploy section at the bottom of the page.
