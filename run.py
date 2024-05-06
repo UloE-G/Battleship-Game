@@ -106,6 +106,7 @@ def create_grid():
         random_row = random.randint(0, rows - 1)
         random_col = random.randint(0, cols - 1)
         direction = random.choice(["left", "right", "up", "down"])
+        # Creates a random ship size from 3 - 5
         ship_size = random.randint(3, 5)
         if help_place_ship(random_row, random_col, direction, ship_size):
             ships_placed += 1
@@ -226,12 +227,15 @@ def shot():
     print("----------------------------")
 
     # Create dialouge to indicate whether user hit, missed, or destroyed a ship
+    # Missed
     if grid[row][col] == ".":
         print(":( , You missed, no ship was hit")
         grid[row][col] = "#"
+    # Hit
     elif grid[row][col] == "O":
         print(":) , You hit!\n", end=" ")
         grid[row][col] = "X"
+        # Sunk
         if ship_sunk(row, col):
             print("NICE!!!, A ship was completely destroyed!")
             sunk += 1
@@ -268,6 +272,10 @@ def main():
     global ships
 
     print("-----Welcome to Battleships-----")
+    print("Your objective is to find and destroy all the ships on the grid")
+    print("A hit ship will be marked with X")
+    print("A missed ship will be marked with #")
+    print("Ship length ranges from 3-5")
     # Get valid grid size input
     while True:
         grid_size = int(input("Enter the grid size (between 5 and 11): "))
