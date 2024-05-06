@@ -142,7 +142,7 @@ Variabels:
 |Already selected area ![Already Hit](assets/images/alreadypick.png)|Message stating that area was already picked|
 |Ship destroyed ![Destroyed ship](assets/images/destroyed.png)|Message stating destroyed ship|
 |Game over (Lost) ![Losing screen](assets/images/gameover.png)|Message stating that you failed|
-|Game over (Won)|Message stating that you won|
+|Game over (Won) ![Winner](assets/images/winner.png)|Message stating that you won|
 
 ### Validator Testing
 
