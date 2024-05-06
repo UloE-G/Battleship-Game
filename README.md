@@ -203,3 +203,6 @@ Variabels:
 
 - The video that helped me create this battleship game was found on Youtube by [Cs Students](https://www.youtube.com/watch?v=MgJBgnsDcF0&t).
 
+### Media
+
+- The flowchart was created using [Draw.io](https://app.diagrams.net/)
