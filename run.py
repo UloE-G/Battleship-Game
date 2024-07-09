@@ -155,35 +155,35 @@ def bullet_placement():
     is_valid_placement = False
     row = -1
     col = -1
-    while is_valid_placement is False:
+    while not is_valid_placement:
         placement = input("Enter row (A-J) and column (0-9) such as A3: \n")
         placement = placement.upper()
-        # If user enters to little or alot numbers or letters print error
-        if len(placement) <= 0 or len(placement) > 2:
-            print("Error: Please enter only one row and column such as A3")
+
+        if len(placement) != 2:
+            print("Error: Please enter both a row letter and a column number (e.g., A3)")
             continue
+
         row = placement[0]
         col = placement[1]
-        # If row is not a letter or column is not a number print error
+
         if not row.isalpha() or not col.isnumeric():
-            print("Error: Please enter letters (A-J) and numbers (0-9)")
+            print("Error: Please enter a row letter (A-J) and a column number (0-9)")
             continue
-        # Checks if column  is in the grid, if not print error
+
         row = letters.find(row)
         if not (-1 < row < grid_size):
-            print("Error: Please enter a column letter that is on grid")
+            print("Error: Please enter a valid row letter (A-J)")
             continue
-        # Checks if row is in the grid, if not print error
+
         col = int(col)
         if not (-1 < col < grid_size):
-            print("Error: Please enter a row number that is on grid")
+            print("Error: Please enter a valid column number (0-9)")
             continue
-        # If user trys to place a bullet in the exact same location
-        # as previous one, print error
+
         if grid[row][col] == "#" or grid[row][col] == "X":
-            print("?. You have already shot a bullet here, pick another place")
+            print("Error: You have already shot a bullet here, pick another place")
             continue
-        # Valid
+
         if grid[row][col] == "." or grid[row][col] == "O":
             is_valid_placement = True
 
