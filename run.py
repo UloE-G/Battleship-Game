@@ -156,9 +156,11 @@ def bullet_placement():
     row = -1
     col = -1
     while not is_valid_placement:
+        # Enter bullet letter and number
         placement = input("Enter row (A-J) and column (0-9) such as A3: \n")
         placement = placement.upper()
 
+        # If only bullet or letter print error
         if len(placement) != 2:
             print("Error: Please enter both a row letter and a column number (e.g., A3)")
             continue
@@ -166,24 +168,29 @@ def bullet_placement():
         row = placement[0]
         col = placement[1]
 
+        # If bullet is not in correct order (Letter first number second) print error
         if not row.isalpha() or not col.isnumeric():
             print("Error: Please enter a row letter (A-J) and a column number (0-9)")
             continue
 
+        # If bullet is not a valid row print error
         row = letters.find(row)
         if not (-1 < row < grid_size):
             print("Error: Please enter a valid row letter (A-J)")
             continue
 
+        # If bullet is not a vaild column print error
         col = int(col)
         if not (-1 < col < grid_size):
             print("Error: Please enter a valid column number (0-9)")
             continue
 
+        # If bullet area was already selected print error
         if grid[row][col] == "#" or grid[row][col] == "X":
             print("Error: You have already shot a bullet here, pick another place")
             continue
 
+        # If bullet area is a correct change placement to true
         if grid[row][col] == "." or grid[row][col] == "O":
             is_valid_placement = True
 
