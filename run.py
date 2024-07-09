@@ -278,21 +278,36 @@ def main():
     print("Ship length ranges from 3-5")
     # Get valid grid size input
     while True:
-        grid_size = int(input("Enter the grid size (between 5 and 11): "))
-        if grid_size < 5 or grid_size > 11:
-            print("Error: Grid size must be between 5 and 11")
+        grid_size_input = input("Enter the grid size (between 5 and 11): ")
+        if grid_size_input == "":
+            print("Error: Grid size cannot be empty")
         else:
-            break
+            try:
+                grid_size = int(grid_size_input)
+                if grid_size < 5 or grid_size > 11:
+                    print("Error: Grid size must be between 5 and 11")
+                else:
+                    break
+            except ValueError:
+                print("Error: Grid size must be a valid integer")
 
     # Get valid number of ships input
     while True:
-        ships = int(input("Enter the number of ships (max 5): "))
-        if ships > 5:
-            print("Error: Maximum number of ships is 5")
-        elif ships == 0:
-            print("Error: 0 ships is not allowed")
+        ships_input = input("Enter the number of ships (max 5): ")
+        if ships_input == "":
+            print("Error: Number of ships cannot be empty")
         else:
-            break
+            try:
+                ships = int(ships_input)
+                if ships > 5:
+                    print("Error: Maximum number of ships is 5")
+                elif ships == 0:
+                    print("Error: 0 ships is not allowed")
+                else:
+                    break
+            except ValueError:
+                print("Error: Number of ships must be a valid integer")
+            
     print("Your ship is under attack!!!")
     print(f'You have 50 bullets to take down {ships} ships, begin!')
 
