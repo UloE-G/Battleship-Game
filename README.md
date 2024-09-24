@@ -169,6 +169,8 @@ Variabels:
 
 - This was solved by adding the "ships" and "grid_size" global variables into the "main" function and having it get the numbers from their.
 
+### Game Crash Due To User Input
+
 - Another problem I had was that the game crashes when user only fills one placement e.g. instead of put "J9" they put "9" or "J".
 
 - The solution was to check if the length of the submission was equal to two and if not print an error and actually allow the user to try again.
